@@ -15,7 +15,7 @@ namespace Console.Extensions
 
         public static string ReplaceSpecialChars(this String str, string replaceChar) => ReplaceSpecialChars(str, replaceChar, @"[^a-zA-Z0-9\- ]");
         public static string ReplaceSpecialChars(this String str, bool removeSpace, string replaceChar) => ReplaceSpecialChars(str, replaceChar, removeSpace ? @"[^a-zA-Z0-9\-]" : @"[^a-zA-Z0-9\- ]");
-        private static string ReplaceSpecialChars(this String str, string replaceChar, string pattern) => new Regex(pattern).Replace(str, replaceChar);
+        private static string ReplaceSpecialChars(string str, string replaceChar, string pattern) => new Regex(pattern).Replace(str, replaceChar);
 
         public static string RemoveSpecialChars(this String str) => new Regex(@"[^a-zA-Z0-9\-_ ]").Replace(str, string.Empty);
         public static string RemoveSpecialChars(this String str, params char[] exclude)
